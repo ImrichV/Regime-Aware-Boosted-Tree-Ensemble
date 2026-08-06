@@ -1,0 +1,15 @@
+module:
+  name: causal_features
+  version: v1.0.0
+upstream:
+  archive_path: ../Stooq_Daily_Stock_Data.zip
+  symbol_manifest_path: artifacts/data/symbol_manifest.csv
+  dataset_fingerprint_path: artifacts/data/dataset_fingerprint.json
+features:
+  schema_version: feature_schema_v1.0.0
+  max_calendar_gap_days: 30
+execution:
+  runs_root: runs
+  dry_run_max_files: 25
+publication:
+  artifact_root: artifacts/features

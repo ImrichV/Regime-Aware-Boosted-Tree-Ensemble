@@ -1,0 +1,23 @@
+ensemble:
+  family_column: setup_family
+  regression_target: y_return
+  classification_target: y_target
+  candidate_id_column: candidate_id
+  feature_columns:
+    - raw_setup_strength
+    - return_20
+    - return_120
+    - atr_14_pct
+    - log_dollar_volume_20_prior
+    - distance_to_prior_high_60
+  regime_columns:
+    - market_return_20
+    - breadth_proxy
+    - volatility_proxy
+  minimum_family_rows: 1000
+  random_state: 260806
+  learning_rate: 0.05
+  max_iter: 150
+  max_leaf_nodes: 15
+  min_samples_leaf: 40
+  l2_regularization: 1.0

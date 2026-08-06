@@ -1,0 +1,14 @@
+module:
+  name: canonical_market_data
+  version: v1.0.0
+data:
+  archive_path: ../Stooq_Daily_Stock_Data.zip
+  compute_archive_sha256: true
+  survivor_window_days: 10
+execution:
+  runs_root: runs
+  checkpoint_every_files: 100
+  progress_every_files: 250
+  dry_run_max_files: 25
+publication:
+  artifact_root: artifacts/data

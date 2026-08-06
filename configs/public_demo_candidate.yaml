@@ -1,0 +1,28 @@
+module:
+  name: public_demo_candidate
+  version: v1.0.0
+upstream:
+  archive_path: ../Stooq_Daily_Stock_Data.zip
+  symbol_manifest_path: artifacts/data/symbol_manifest.csv
+  data_dataset_fingerprint_path: artifacts/data/dataset_fingerprint.json
+  feature_root: artifacts/features
+  feature_dataset_fingerprint_path: artifacts/features/dataset_fingerprint.json
+generators:
+  - class: tsr.playbooks.public_demo:PublicTrendPullbackDemoGenerator
+    config:
+      minimum_history_bars: 120
+      minimum_return_20: 0.02
+      pullback_from_high_min: -0.12
+      pullback_from_high_max: -0.02
+      maximum_atr_14_pct: 0.08
+      minimum_log_dollar_volume: 12.0
+selection:
+  require_rows: false
+  instrument_class: stocks
+framework:
+  allow_test_generators: false
+execution:
+  runs_root: runs
+  dry_run_max_files: 25
+publication:
+  artifact_root: artifacts/public_demo_candidates
