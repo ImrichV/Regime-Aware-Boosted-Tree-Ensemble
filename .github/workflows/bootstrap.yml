@@ -10,12 +10,15 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - ".bootstrap-trigger"
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
 
 jobs:
   expand:
+    if: github.event_name != 'issues' || github.event.issue.title == 'INSTALL_SANITIZED_PUBLIC_RELEASE'
     runs-on: ubuntu-latest
     steps:
       - name: Check out the main branch
